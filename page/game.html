@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/game.js"></script>
+    <link rel="stylesheet" href="../css/game.css">
+</head>
+<body>
+    <div class="time"><h2>00&nbsp;:&nbsp;</h2><h2 id="timer">30</h2><h2>초 남았습니다.</h2></div>
+    <div class="container">
+        <div class="concon">
+            <div class="in-con">
+                <input type="text" id="key" name="key"><br>
+                <input type="text" id="sentence" name="sentence"><br>
+                <input type="submit" class="submit" value="입력" onclick="handleSubmit();"/>
+            </div>
+            <div class="table-con">
+                <table class="alpha-tab">
+                <tbody id="setTable">
+                    
+                </tbody>
+                </table>
+                <button id="answer" onclick="handleAnswer();">입력하기</button><br>
+            </div>
+        </div>
+        
+        <div class="result">
+            <h2>암호문 : </h2><h2 id="encryption"></h2><br>
+            <h2 id="sub_dec"></h2><br>
+            <h2>복호문 : </h2><h2 id="decripyion"></h2>
+        </div>
+    </div>
+    
+   
+    
+</body>
+</html>
