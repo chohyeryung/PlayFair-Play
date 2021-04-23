@@ -44,6 +44,16 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
         return; //후 빠져나감
     } 
 
+    if(!(typeof key === "string")) {
+        alert("암호키는 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
+
+    if(!(typeof key === "string")) {
+        alert("평문은 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
+
     setBoard(key, sentence);    //5x5 테이블 생성하기 위한 setBoard 함수
 
     for( let i = 0 ; i < sentence.length ; i++ ) {
@@ -87,6 +97,16 @@ function handleDecSubmit() {
         alert("암호키와 평문을 모두 입력해주세요"); //alert문 실행
         return; //후 빠져나감
     } 
+
+    if(typeof key != "string") {
+        alert("암호키는 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
+
+    if(typeof sentence != "string") {
+        alert("평문은 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
 
     for( let i = 0 ; i < sentence.length ; i++ ) {
         if(sentence.charAt(i)==' ') //공백제거
