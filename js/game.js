@@ -66,17 +66,17 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
     }
 
     var enc = strEncryption(sentence, alphabetBoard);   //enc 변수에 암호화 결과가 넣어짐
-    document.getElementById("encryption").innerText = enc;  //encryption이라는 태그 아이디에 enc 설정
+    document.getElementById("encryption").innerText = '암호문 : '+enc;  //encryption이라는 태그 아이디에 enc 설정
 
     for( let i = 0 ; i < enc.length ; i++ ) {
         if(enc.charAt(i)==' ') //공백제거
             enc = enc.substring(0,i)+enc.substring(i+1,enc.length); //암호화된 값을 공백제거 -> 복호화해야하기 때
     }
 
-    var dec = strDecryption(key, enc, zCheck);  //복호화 결과를 dec에 넣음
-
     document.getElementById("sub_dec").innerText = sub_dec; //sub_dec이라는 태그 아이디에 sub_dec 설정
 
+    var dec = strDecryption(key, enc, zCheck);  //복호화 결과를 dec에 넣음
+    
     for (let i = 0; i < dec.length; i++) {
         if (blankCheck.charAt(i) == "1") {
             dec = dec.substring(0, i) + " " + dec.substring(i, dec.length); //공백이 있었다면 다시 설정해줌
@@ -84,7 +84,7 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
     }
   
     
-    document.getElementById("decripyion").innerText = dec;
+    document.getElementById("decripyion").innerText = '복호문 : '+dec;
 }
 
 function setBoard(key, sentence) {
@@ -160,6 +160,7 @@ function handleAnswer() {
 
 
 function strEncryption(sentence) {  //암호화 함수
+    sub_dec = "";
     sentence = sentence.toLowerCase();  //소문자로 변환
     var playFair = [];  //두개씩 묶은 데이터를 저장하는 배열
     var encPlayFair = [];
