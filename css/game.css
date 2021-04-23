@@ -1,14 +1,7 @@
-/* .container{
-    display:flex;
-    flex-direction: column;
-} */
-
 .concon {
     font-family: 'DungGeunMo';
-    text-align: center;
     display:flex;
     justify-content: space-around;
-    flex-direction: row;
     position: absolute;
     left:50%;
     top:50%;
@@ -20,8 +13,9 @@
     border:1px solid rgb(31, 26, 26);
     width:60px;
     height:60px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 
 .time {
@@ -41,6 +35,7 @@ input {
     margin:10px;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
 .in-con{
@@ -64,9 +59,9 @@ input {
 }
 
 .input-con{
-    width:60px;
-    height:60px;
-    font-size:20px;
+    width:50px;
+    height:50px;
+    font-size:18px;
     font-weight: bold;
 }
 
@@ -81,6 +76,9 @@ input {
     color:white;
     font-size:20px;
     font-weight: bold;
+    position: absolute; 
+    left: 50%;
+    margin-left:120px;
 }
 
 .result{
