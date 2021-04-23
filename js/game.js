@@ -5,6 +5,8 @@ let zCheck = "";    //z 여부를 체크하기 위한 변수
 let randomIndex1 = 0;   //공백으로 설정할 row 인덱스 변수
 let randomIndex2 = 0;   //공백으로 설정한 column 인덱스 변수
 let sub_dec = "";   //매핑한 문자열을 담을 변수
+let enc = "";
+let dec = "";
 
 document.onkeydown = noEvent;   
 
@@ -65,7 +67,7 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
         }
     }
 
-    var enc = strEncryption(sentence, alphabetBoard);   //enc 변수에 암호화 결과가 넣어짐
+    enc = strEncryption(sentence, alphabetBoard);   //enc 변수에 암호화 결과가 넣어짐
     document.getElementById("encryption").innerText = '암호문 : '+enc;  //encryption이라는 태그 아이디에 enc 설정
 
     for( let i = 0 ; i < enc.length ; i++ ) {
@@ -74,8 +76,40 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
     }
 
     document.getElementById("sub_dec").innerText = sub_dec; //sub_dec이라는 태그 아이디에 sub_dec 설정
+}
 
-    var dec = strDecryption(key, enc, zCheck);  //복호화 결과를 dec에 넣음
+function handleDecSubmit() {
+    let blankCheck = "";    //공백을 체크하기 위한 변수
+    var key = document.getElementById("key").value; //암호키 값을 받아옴
+    var sentence = document.getElementById("sentence").value;   //평문 값을 받아옴
+
+    if(!key || !sentence) { //만약 암호키와 평문을 입력하지 않았다면
+        alert("암호키와 평문을 모두 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    } 
+
+    for( let i = 0 ; i < sentence.length ; i++ ) {
+        if(sentence.charAt(i)==' ') //공백제거
+        {
+            sentence = sentence.substring(0,i)+sentence.substring(i+1,sentence.length); //공백이 있기 전과 그 후부터 끝까지 다시 넣어줌 (공백이 제거됨)
+            blankCheck+=10; //공백 체크 변수 10 증가
+        }
+        else
+        {
+            blankCheck+=0;  //공백이 없으면 증가 x
+        }
+        if(sentence.charAt(i)=='z') //z가 있다면
+        {
+            sentence = sentence.substring(0,i)+'q'+sentence.substring(i+1,sentence.length); //z를 q로 바꿈
+            zCheck+=1;  //z 체크 변수 1 증가
+        }
+        else 
+        {
+            zCheck+=0;  //z가 없다면 증가 x
+        }
+    }
+
+    dec = strDecryption(key, enc, zCheck);  //복호화 결과를 dec에 넣음
     
     for (let i = 0; i < dec.length; i++) {
         if (blankCheck.charAt(i) == "1") {
@@ -85,6 +119,8 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
   
     
     document.getElementById("decripyion").innerText = '복호문 : '+dec;
+
+
 }
 
 function setBoard(key, sentence) {
