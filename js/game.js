@@ -23,7 +23,7 @@ function noEvent() {    //F5키 (새로고침)을 막는 함수
 
 window.onload = function() {    //웹 문서를 불러올 때
     document.getElementById("answer").style.visibility = "hidden";  //5x5 테이블이 아직 생성되지 않았으므로, 입력 버튼도 보이지 않게 한다.
-    let remain = 200;    //남은 시간 세팅 : 30초
+    let remain = 30;    //남은 시간 세팅 : 30초
     let timer = document.getElementById("timer");   //시간을 나타낼 변수
     let x = setInterval(function() {    //일정한 간격으로 함수를 실행하기 위해 setInterval 사용
         timer.innerHTML = remain;   //초를 나타냄
@@ -44,13 +44,8 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
         return; //후 빠져나감
     } 
 
-    if(!(typeof key === "string")) {
-        alert("암호키는 영문을 입력해주세요"); //alert문 실행
-        return; //후 빠져나감
-    }
-
-    if(!(typeof key === "string")) {
-        alert("평문은 영문을 입력해주세요"); //alert문 실행
+    if(isNaN(key) == false || isNaN(sentence) == false) {
+        alert("암호키와 평문 모두 영문을 입력해주세요"); //alert문 실행
         return; //후 빠져나감
     }
 
@@ -98,13 +93,8 @@ function handleDecSubmit() {
         return; //후 빠져나감
     } 
 
-    if(typeof key != "string") {
-        alert("암호키는 영문을 입력해주세요"); //alert문 실행
-        return; //후 빠져나감
-    }
-
-    if(typeof sentence != "string") {
-        alert("평문은 영문을 입력해주세요"); //alert문 실행
+    if(isNaN(key) == false || isNaN(sentence) == false) {
+        alert("암호키와 평문 모두 영문을 입력해주세요"); //alert문 실행
         return; //후 빠져나감
     }
 
