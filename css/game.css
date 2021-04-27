@@ -30,26 +30,35 @@ h2{
 }
 
 input {
-    width:300px;
-    height:50px;
+    width:400px;
+    height:60px;
     margin:10px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    border-radius: 20px;
+    border:none;
+    border:1px solid black;
 }
 
 .in-con{
     width:350px;
+    margin-top:100px;
 }
 
 .in-con, .table-con{
     margin:10px;
 }
 
+.buttons{
+    width:450px;
+}
+
 .submit {
     cursor: pointer;
-    width:300px;
+    width:200px;
     height:60px;
+    margin:5px;
     border-radius: 40px;
     border:none;
     background-color: darkolivegreen;
