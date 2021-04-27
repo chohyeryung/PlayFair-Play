@@ -7,7 +7,7 @@ let randomIndex2 = 0;   //공백으로 설정한 column 인덱스 변수
 let sub_dec = "";   //매핑한 문자열을 담을 변수
 let enc = "";
 let dec = "";
-let check_eng = /[a-zA-Z]/; // 영문자
+let check_eng = /^[A-Za-z\s+]*$/; // 영문자
 
 document.onkeydown = noEvent;   
 
