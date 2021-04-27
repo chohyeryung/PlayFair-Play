@@ -7,6 +7,7 @@ let randomIndex2 = 0;   //공백으로 설정한 column 인덱스 변수
 let sub_dec = "";   //매핑한 문자열을 담을 변수
 let enc = "";
 let dec = "";
+let check_eng = /[a-zA-Z]/; // 영문자
 
 document.onkeydown = noEvent;   
 
@@ -45,7 +46,12 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
     } 
 
     if(isNaN(key) == false || isNaN(sentence) == false) {
-        alert("암호키와 평문 모두 영문을 입력해주세요"); //alert문 실행
+        alert("암호키와 평문 모두 숫자가 아닌 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
+
+    if(check_eng.test(key) == false || check_eng.test(sentence) == false) {
+        alert("암호키와 평문 모두 한글이 아닌 영문을 입력해주세요"); //alert문 실행
         return; //후 빠져나감
     }
 
@@ -94,7 +100,12 @@ function handleDecSubmit() {
     } 
 
     if(isNaN(key) == false || isNaN(sentence) == false) {
-        alert("암호키와 평문 모두 영문을 입력해주세요"); //alert문 실행
+        alert("암호키와 평문 모두 숫자가 아닌 영문을 입력해주세요"); //alert문 실행
+        return; //후 빠져나감
+    }
+
+    if(check_eng.test(key) == false || check_eng.test(sentence) == false) {
+        alert("암호키와 평문 모두 한글이 아닌 영문을 입력해주세요"); //alert문 실행
         return; //후 빠져나감
     }
 
