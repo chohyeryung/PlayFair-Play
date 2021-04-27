@@ -50,9 +50,18 @@ function handleSubmit() {   //암호키와 평문을 입력 후 입력 버튼을
         return; //후 빠져나감
     }
 
-    if(check_eng.test(key) == false || check_eng.test(sentence) == false) {
-        alert("암호키와 평문 모두 한글이 아닌 영문을 입력해주세요"); //alert문 실행
-        return; //후 빠져나감
+    for(let i=0; i<key.length; i++) {
+        if(check_eng.test(key[i]) == false) {
+            alert("암호키는 한글이 아닌 영문을 입력해주세요"); //alert문 실행
+            return; //후 빠져나감
+        }
+    }
+    
+    for(let i=0; i<sentence.length; i++) {
+        if(check_eng.test(sentence[i]) == false) {
+            alert("평문은 한글이 아닌 영문을 입력해주세요"); //alert문 실행
+            return; //후 빠져나감
+        }
     }
 
     setBoard(key, sentence);    //5x5 테이블 생성하기 위한 setBoard 함수
@@ -104,9 +113,18 @@ function handleDecSubmit() {
         return; //후 빠져나감
     }
 
-    if(check_eng.test(key) == false || check_eng.test(sentence) == false) {
-        alert("암호키와 평문 모두 한글이 아닌 영문을 입력해주세요"); //alert문 실행
-        return; //후 빠져나감
+    for(let i=0; i<key.length; i++) {
+        if(check_eng.test(key[i]) == false) {
+            alert("암호키는 한글이 아닌 영문을 입력해주세요"); //alert문 실행
+            return; //후 빠져나감
+        }
+    }
+    
+    for(let i=0; i<sentence.length; i++) {
+        if(check_eng.test(sentence[i]) == false) {
+            alert("평문은 한글이 아닌 영문을 입력해주세요"); //alert문 실행
+            return; //후 빠져나감
+        }
     }
 
     for( let i = 0 ; i < sentence.length ; i++ ) {
