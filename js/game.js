@@ -231,9 +231,13 @@ function handleAnswer() {
             alert("성공!");
             location.href = "success.html";
         }else {
-            // location.href = "fail.html";
-            alert("실패!");
-            return;
+            let answer = confirm("실패하셨습니다 !");
+            if(answer == true) {
+                location.href = "../index.html";
+            }else {
+                return;
+            }
+            
         }
     }
     
