@@ -24,7 +24,7 @@ function noEvent() {    //F5키 (새로고침)을 막는 함수
 
 window.onload = function() {    //웹 문서를 불러올 때
     document.getElementById("answer").style.visibility = "hidden";  //5x5 테이블이 아직 생성되지 않았으므로, 입력 버튼도 보이지 않게 한다.
-    let remain = 30;    //남은 시간 세팅 : 30초
+    let remain = 300;    //남은 시간 세팅 : 30초
     let timer = document.getElementById("timer");   //시간을 나타낼 변수
     let x = setInterval(function() {    //일정한 간격으로 함수를 실행하기 위해 setInterval 사용
         timer.innerHTML = remain;   //초를 나타냄
@@ -228,9 +228,12 @@ function handleAnswer() {
         return;
     }else {
         if(alphabetBoard[randomIndex1][randomIndex2] == in_answer) {
+            alert("성공!");
             location.href = "success.html";
         }else {
-            location.href = "fail.html";
+            // location.href = "fail.html";
+            alert("실패!");
+            return;
         }
     }
     
